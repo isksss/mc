@@ -1,0 +1,26 @@
+{   
+    "name":"waterfall",
+    "options":"",
+    "plugins":{
+        "paper":[
+            {
+                "name":"coreprotect.jar",
+                "url":"https://www.patreon.com/file?h=86980969&i=15204430"
+            },
+            {
+                "name":"FastAsyncWorldEdit.jar",
+                "url":"https://github.com/IntellectualSites/FastAsyncWorldEdit/releases/download/2.7.0/FastAsyncWorldEdit-Bukkit-2.7.0.jar"
+            }
+        ],
+        "waterfall":[
+            {
+                "name":"geyser.jar",
+                "url":"https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/bungeecord"
+            },
+            {
+                "name":"floodgate.jar",
+                "url":"https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/bungee"
+            }
+        ]
+    }
+}

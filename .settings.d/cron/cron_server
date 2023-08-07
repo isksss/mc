@@ -1,0 +1,2 @@
+# 8時間ごとに実行する
+00 */8 * * *   minecraft /bin/bash /src/mc/start.sh
