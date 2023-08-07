@@ -50,6 +50,8 @@ stop_paper(){
         screen -p 0 -S ${screen_name} -X eval 'stuff "say '${wait_time}'秒後にサーバーを再起動します\015"'
         screen -p 0 -S ${screen_name} -X eval 'stuff "say すぐに再接続可能になるので、しばらくお待ち下さい\015"'
         sleep $wait_time
+        screen -p 0 -S ${screen_name} -X eval 'stuff "say サーバーを再起動します\015"'
+        sleep 5
         screen -p 0 -S ${screen_name} -X eval 'stuff "stop\015"'
     fi
 }
