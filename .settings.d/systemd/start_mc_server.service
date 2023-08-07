@@ -1,0 +1,12 @@
+[Unit]
+Description=start mc server
+After=network.target
+
+[Service]
+User=minecraft
+ExecStart=/mc/start.sh
+Restart=always
+type=simple
+
+[Install]
+WantedBy=multi-user.target
