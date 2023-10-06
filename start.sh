@@ -75,16 +75,19 @@ run_server(){
     local app=$1
     local jar="$app.jar"
     local opt=`cat $configfile | jq -r ".options"`
+    echo $opt
     cd `dirname $0`
-    
-    screen -UAmdS ${screen_name} java -server -jar ${opt} ${jar} nogui
+    echo_wrp "run server: $jar"
+    screen -UAmdS ${screen_name} java -server -jar ${jar} nogui
+    echo "> screen -ls"
+    screen -ls
 }
 
 # echo
 echo_wrp(){
-    echo "=============================="
+    echo "============================================================"
     echo "[`date +%Y-%m-%d:%H-%M-%S`] $1"
-    echo "=============================="
+    echo "============================================================"
 }
 
 # メイン関数
@@ -94,15 +97,18 @@ main(){
 
     # サーバーを止める
     if [ $serverName = "paper" ]; then
+        echo_wrp "stop paper"
         stop_paper
     elif [ $serverName = "waterfall" ]; then
+        echo_wrp "stop waterfall"
         screen -p 0 -S ${screen_name} -X eval 'stuff "end\015"'
     fi
 
     # サーバーが止まるまで待機
     while [ -n "$(screen -list | grep -o "${screen_name}")" ]
-    do
-        sleep 1
+    do  
+        echo "> waiting for server to stop..."
+        sleep 5
     done
 
     # サーバーとプラグインをダウンロード
@@ -111,7 +117,7 @@ main(){
 
     # バックアップ
     echo_wrp "backup"
-    buckup
+    # buckup
 
     # 実行
     echo_wrp "run server"
