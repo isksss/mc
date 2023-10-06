@@ -1,0 +1,6 @@
+*
+**/*
+!.gitignore
+!.config.json
+!eula.txt
+!start.sh
