@@ -78,7 +78,7 @@ run_server(){
     echo $opt
     cd `dirname $0`
     echo_wrp "run server: $jar"
-    screen -UAmdS ${screen_name} java -server -jar ${jar} nogui
+    screen -UAmdS ${screen_name} java -server -jar -Dpaper.disableChannelLimit=true ${jar} nogui
     echo "> screen -ls"
     screen -ls
 }
