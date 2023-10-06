@@ -3,7 +3,7 @@
 # 変数
 configfile=".config.json"
 screen_name="minecraft"
-wait_time=120
+wait_time=30
 start_script=$0
 
 # サーバーダウンロード
@@ -14,9 +14,13 @@ server(){
     local url='https://api.papermc.io/v2/projects'
 
     # バージョン取得
-    version_url="$url/$app"
-    version=`curl -X 'GET' -H 'accept: application/json' "$version_url" | jq -r '.versions[-1]'`
-
+    local version_url="$url/$app"
+    local version=`cat $configfile | jq -r ".versions.$app"`
+    
+    if [ $version = "latest" ]; then
+        version=`curl -X 'GET' -H 'accept: application/json' "$version_url" | jq -r '.versions[-1]'`
+    fi
+    
     # ビルド番号取得
     build_url="$version_url/versions/$version"
     build=`curl -X 'GET' -H 'accept: application/json' "$build_url" | jq '.builds[-1]'`

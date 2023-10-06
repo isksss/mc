@@ -1,11 +1,15 @@
 {   
     "name":"waterfall",
     "options":"",
+    "versions":{
+        "paper":"1.20.2",
+        "waterfall":"1.20"
+    },
     "plugins":{
         "paper":[
             {
                 "name":"FastAsyncWorldEdit.jar",
-                "url":"https://github.com/IntellectualSites/FastAsyncWorldEdit/releases/download/2.7.0/FastAsyncWorldEdit-Bukkit-2.7.0.jar"
+                "url":"https://github.com/IntellectualSites/FastAsyncWorldEdit/releases/download/2.8.0/FastAsyncWorldEdit-Bukkit-2.8.0.jar"
             }
         ],
         "waterfall":[
@@ -16,6 +20,10 @@
             {
                 "name":"floodgate.jar",
                 "url":"https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/bungee"
+            },
+            {
+                "name":"luckperms.jar",
+                "url":"https://download.luckperms.net/1517/bungee/loader/LuckPerms-Bungee-5.4.104.jar"
             }
         ]
     }
