@@ -60,12 +60,21 @@ stop_paper(){
     fi
 }
 
+buckup(){
+    local date=`date "+%Y%m%d%H%M%S"`
+    local backup_dir="backup/$date"
+    mkdir -p $backup_dir
+
+    zip -r "$backup_dir/backup.zip" . -x "backup/*" -x ".git/*"
+}
+
 # サーバー実行
 run_server(){
     local app=$1
     local jar="$app.jar"
+    local opt=`cat $configfile | jq -r ".options"`
     cd `dirname $0`
-    screen -UAmdS ${screen_name} java -server -jar ${jar} nogui
+    screen -UAmdS ${screen_name} java -server -jar ${opt} ${jar} nogui
 }
 
 # メイン関数
@@ -76,7 +85,10 @@ main(){
     # サーバーを止める
     if [ $serverName = "paper" ]; then
         stop_paper
+    elif [ $serverName = "waterfall" ]; then
+        screen -p 0 -S ${screen_name} -X eval 'stuff "end\015"'
     fi
+
     # サーバーが止まるまで待機
     while [ -n "$(screen -list | grep -o "${screen_name}")" ]
     do
@@ -86,6 +98,9 @@ main(){
     # サーバーとプラグインをダウンロード
     server $serverName
     plugins $serverName
+
+    # バックアップ
+    buckup
 
     # 実行
     run_server $serverName

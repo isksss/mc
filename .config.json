@@ -1,6 +1,6 @@
 {   
     "name":"waterfall",
-    "options":"",
+    "options":"-Xmx 512M -Xms 512M",
     "versions":{
         "paper":"1.20.2",
         "waterfall":"1.20"
