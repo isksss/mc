@@ -16,7 +16,7 @@ server(){
     # バージョン取得
     local version_url="$url/$app"
     local version=`cat $configfile | jq -r ".versions.$app"`
-    
+
     if [ $version = "latest" ]; then
         version=`curl -X 'GET' -H 'accept: application/json' "$version_url" | jq -r '.versions[-1]'`
     fi
@@ -68,18 +68,6 @@ run_server(){
     screen -UAmdS ${screen_name} java -server -jar ${jar} nogui
 }
 
-# 設定ファイルをリンク
-symlink(){
-    # 引数: フォルダ名
-    local dir=".settings.d/$1"
-    for target in `ls $dir`; do
-        if [ -e $target ]; then
-            unlink $target
-        fi
-        ln -sf "$dir/$target" "$target" 
-    done
-}
-
 # メイン関数
 main(){
     # サーバー名取得
@@ -98,9 +86,6 @@ main(){
     # サーバーとプラグインをダウンロード
     server $serverName
     plugins $serverName
-
-    # 設定ファイルをリンク
-    symlink $serverName
 
     # 実行
     run_server $serverName
