@@ -28,6 +28,7 @@ server(){
     # ダウンロード
     jar="$app-$version-$build.jar"
     jar_url="$build_url/builds/$build/downloads/$jar"
+    echo_wrp "download server: $jar"
     curl -X 'GET' -H 'accept: application/json' $jar_url -o "$app.jar"
 }
 
@@ -44,6 +45,7 @@ plugins(){
         fi
         local name=`cat $configfile | jq -r ".plugins.$app[$i].name"`
         local url=`cat $configfile | jq -r ".plugins.$app[$i].url"`
+        echo_wrp "download plugin: $name"
         curl -L -X GET $url -o plugins/$name
     done
 }
@@ -74,7 +76,15 @@ run_server(){
     local jar="$app.jar"
     local opt=`cat $configfile | jq -r ".options"`
     cd `dirname $0`
+    
     screen -UAmdS ${screen_name} java -server -jar ${opt} ${jar} nogui
+}
+
+# echo
+echo_wrp(){
+    echo "=============================="
+    echo "[`date +%Y-%m-%d:%H-%M-%S`] $1"
+    echo "=============================="
 }
 
 # メイン関数
@@ -100,9 +110,11 @@ main(){
     plugins $serverName
 
     # バックアップ
+    echo_wrp "backup"
     buckup
 
     # 実行
+    echo_wrp "run server"
     run_server $serverName
 }
 
