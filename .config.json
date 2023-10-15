@@ -10,6 +10,10 @@
             {
                 "name":"FastAsyncWorldEdit.jar",
                 "url":"https://github.com/IntellectualSites/FastAsyncWorldEdit/releases/download/2.8.0/FastAsyncWorldEdit-Bukkit-2.8.0.jar"
+            },
+            {
+                "name":"luckperms.jar",
+                "url":"https://download.luckperms.net/1517/bukkit/loader/LuckPerms-Bukkit-5.4.104.jar"
             }
         ],
         "waterfall":[
