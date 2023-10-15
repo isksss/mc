@@ -28,6 +28,10 @@
             {
                 "name":"luckperms.jar",
                 "url":"https://download.luckperms.net/1517/bungee/loader/LuckPerms-Bungee-5.4.104.jar"
+            },
+            {
+                "name":"SimplePortals.jar",
+                "url":"https://github.com/XZot1K/SimplePortals/releases/download/1.7.4/SimplePortals-1.7.4.jar"
             }
         ]
     }
