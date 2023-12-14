@@ -7,7 +7,7 @@
             },
             {
                 "name":"luckperms.jar",
-                "url":"https://download.luckperms.net/1517/bukkit/loader/LuckPerms-Bukkit-5.4.113.jar"
+                "url":"https://download.luckperms.net/1526/velocity/LuckPerms-Velocity-5.4.113.jar"
             },
             {
                 "name":"DeadChest.jar",
@@ -35,7 +35,7 @@
             },
             {
                 "name":"PlaceholderAPI.jar",
-                "url":"https://www.spigotmc.org/resources/placeholderapi.6245/download?version=518016"
+                "url":"https://github.com/PlaceholderAPI/PlaceholderAPI/releases/download/2.11.4/PlaceholderAPI-2.11.4.jar"
             },
             {
                 "name":"fawe.jar",

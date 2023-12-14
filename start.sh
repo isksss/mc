@@ -5,7 +5,7 @@
 
 #===== var =====#
 PROJECT="paper"
-VERSION="1.16.5"
+VERSION="1.20.2"
 MEMORY="2014M"
 
 CONFIG_JSON=".config.json"
