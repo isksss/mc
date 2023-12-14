@@ -12,16 +12,18 @@
 ## 必須
 
 - java17以上(openjdk-17-jdk)
+- curl
 - screen
+- jq
 
-## デフォルト導入プラグイン
+## よく使うコマンド
+```shell
+# placeholder
+papi ecloud download player
+papi ecloud download server
 
-### papermc
-
-- [FAWE](https://github.com/IntellectualSites/FastAsyncWorldEdit)
-
-### waterfall
-
-- [Geyser](https://github.com/GeyserMC/Geyser)
-- [Floodgate](https://github.com/GeyserMC/Floodgate)
-- [LuckPerms](https://github.com/LuckPerms/LuckPerms)
+# chunky
+chunky center 100 -100
+chunky radius 5000
+chunky start
+```

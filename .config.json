@@ -42,10 +42,6 @@
                 "url":"https://dev.bukkit.org/projects/fawe/files/latest"
             },
             {
-                "name":"dcintegration.jar",
-                "url":"https://cdn.modrinth.com/data/rbJ7eS5V/versions/8aXeAavL/dcintegration-spigot-3.0.3-1.20.2.jar"
-            },
-            {
                 "name":"CrowdControl.jar",
                 "url":"https://github.com/qixils/minecraft-crowdcontrol/releases/download/v3.3.5/CrowdControl-Paper-3.3.5.jar"
             },

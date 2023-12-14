@@ -41,8 +41,15 @@ function plugin-download(){
 
 COMMAND=$1
 case ${COMMAND} in
+    "all")
+        paper-download ${PROJECT} ${VERSION}
+        plugin-download
+        paper-run ${MEMORY}
+        ;;
     "dl")
         paper-download ${PROJECT} ${VERSION}
+        ;;
+    "pl")
         plugin-download
         ;;
     "run")
