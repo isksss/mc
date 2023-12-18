@@ -7,7 +7,7 @@
             },
             {
                 "name":"luckperms.jar",
-                "url":"https://download.luckperms.net/1526/velocity/LuckPerms-Velocity-5.4.113.jar"
+                "url":"https://download.luckperms.net/1526/bukkit/loader/LuckPerms-Bukkit-5.4.113.jar"
             },
             {
                 "name":"DeadChest.jar",

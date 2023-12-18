@@ -1,5 +1,6 @@
 *
 **/*
+!devcontainer.json
 !.gitignore
 !.config.json
 !eula.txt

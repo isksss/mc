@@ -59,6 +59,6 @@ case ${COMMAND} in
         paper-stop
         ;;
     *)
-        echo "Usage: $0 {dl|run|stop}"
+        echo "Usage: $0 {dl|pl|run|stop}"
         ;;
 esac
