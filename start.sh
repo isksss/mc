@@ -4,11 +4,8 @@
 #================#
 
 #===== var =====#
-PROJECT="paper"
-VERSION="1.20.2"
-MEMORY="2014M"
-
 CONFIG_JSON=".config.json"
+ENV_FILE=".env.sh"
 #===============#
 
 #===== init =====#
@@ -38,6 +35,17 @@ function plugin-download(){
     done
 }
 #================#
+
+#===== main =====#
+
+# if .config.json not exist, create it
+if [ ! -f $ENV_FILE ]; then
+    echo "export PROJECT=paper" > $ENV_FILE
+    echo "export VERSION=1.20.2" >> $ENV_FILE
+    echo "export MEMORY=6G" >> $ENV_FILE
+fi
+# load env
+. $ENV_FILE
 
 COMMAND=$1
 case ${COMMAND} in
