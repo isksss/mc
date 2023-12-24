@@ -19,15 +19,15 @@
             },
             {
                 "name":"ViaVersion.jar",
-                "url":"https://github.com/ViaVersion/ViaVersion/releases/download/4.9.2/ViaVersion-4.9.2.jar"
+                "url":"https://cdn.modrinth.com/data/P1OZGk5p/versions/ybzCedm6/ViaVersion-4.9.3-SNAPSHOT.jar"
             },
             {
                 "name":"ViaBackwards.jar",
-                "url":"https://github.com/ViaVersion/ViaBackwards/releases/download/4.9.1/ViaBackwards-4.9.1.jar"
+                "url":"https://cdn.modrinth.com/data/NpvuJQoq/versions/x5xUhIzt/ViaBackwards-4.10.0-23w51b-SNAPSHOT.jar"
             },
             {
                 "name":"ViaRewind.jar",
-                "url":"https://github.com/ViaVersion/ViaRewind/releases/download/3.0.5/ViaRewind-3.0.5.jar"
+                "url":"https://cdn.modrinth.com/data/TbHIxhx5/versions/s1eGUeIs/ViaRewind-3.0.6-SNAPSHOT.jar"
             },
             {
                 "name":"Advanced-Portals.jar",
