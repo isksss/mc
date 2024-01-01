@@ -1,25 +1,34 @@
 #!/bin/bash
 #===== info =====#
-# new paper server
+# For Ubuntu.
 #================#
 
-#===== var =====#
-CONFIG_JSON=".config.json"
-ENV_FILE=".env.sh"
-#===============#
-
-#===== init =====#
-# load publib manager
-. <(curl -fsSL https://raw.githubusercontent.com/isksss/publib/main/sh/manager.sh)
-
-# load some file
-load_publib log.sh
-load_publib paper.sh
-#================#
+#===== const =====#
+CURRENT_DIR=$(cd $(dirname $0); pwd)
+CONFIG_JSON="${CURRENT_DIR}/.config.json"
+ENV_FILE="${CURRENT_DIR}/.env.sh"
+export LANG=ja_JP.utf8
+#=================#
 
 #===== func =====#
+function paper-download(){
+    local project=$1 #ex) paper, velocity
+    local version=$2 #ex) 1.16.5
+
+    local url="https://api.papermc.io/v2/projects/${PROJECT}/versions/${VERSION}"
+
+    local response=$(curl -X GET -H 'accept: application/json' -fsSL ${url})
+    local build=`echo ${response} | jq -r '.builds[-1]'`
+    local jar="${PROJECT}-${VERSION}-${build}.jar"
+    local jar_url="${url}/builds/${build}/downloads/${jar}"
+    # download jar
+    echo "download server: ${jar}"
+    curl -X GET -H 'accept: application/json' -fsSL ${jar_url} -o ${CURRENT_DIR}/${server_jar}
+}
+
 function plugin-download(){
-    mkdir -p plugins
+    local plugins_dir="${CURRENT_DIR}/plugins"
+    mkdir -p ${plugins_dir}
     local len=`cat $CONFIG_JSON | jq ".plugins.$PROJECT | length"`
     if [ $len = 0 ]; then
         return
@@ -30,43 +39,35 @@ function plugin-download(){
         fi
         local name=`cat $CONFIG_JSON | jq -r ".plugins.$PROJECT [$i].name"`
         local url=`cat $CONFIG_JSON | jq -r ".plugins.$PROJECT [$i].url"`
-        log_info "download plugin: $name"
-        curl -fsSL -X GET $url -o plugins/$name
+        echo "download plugin: $name"
+        curl -fsSL -X GET $url -o ${plugins_dir}/$name
     done
+}
+
+function paper-run(){
+    # if screen is not exist, create screen.
+    if screen -list | grep -q "${screen_name}"; then
+        screen -S ${screen_name}  -X quit
+    fi
+    screen -AdmSU ${screen_name}
+
+    # run server
+    echo "run server."
+    screen -S ${screen_name} -X stuff "java -Xms${MEMORY} -Xmx${MEMORY} -jar ${CURRENT_DIR}/${server_jar} nogui\n"
 }
 #================#
 
 #===== main =====#
-
-# if .config.json not exist, create it
-if [ ! -f $ENV_FILE ]; then
-    echo "export PROJECT=paper" > $ENV_FILE
-    echo "export VERSION=1.20.2" >> $ENV_FILE
-    echo "export MEMORY=6G" >> $ENV_FILE
+if [ ! -e $ENV_FILE ];then
+    echo "${ENV_FILE} is not found."
+    echo "Run init.sh."
+    exit 1
 fi
 # load env
 . $ENV_FILE
 
-COMMAND=$1
-case ${COMMAND} in
-    "all")
-        paper-download ${PROJECT} ${VERSION}
-        plugin-download
-        paper-run ${MEMORY}
-        ;;
-    "dl")
-        paper-download ${PROJECT} ${VERSION}
-        ;;
-    "pl")
-        plugin-download
-        ;;
-    "run")
-        paper-run ${MEMORY}
-        ;;
-    "stop")
-        paper-stop
-        ;;
-    *)
-        echo "Usage: $0 {dl|pl|run|stop}"
-        ;;
-esac
+# download
+paper-download
+plugin-download
+
+paper-run
