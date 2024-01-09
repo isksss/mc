@@ -18,8 +18,8 @@ function check_rquirement(){
 #===== init =====#
 if [ ! -f $ENV_FILE ]; then
     # create .env.sh
-    echo "#===== For your settings =====#" >> $ENV_FILE
-    echo "export PROJECT=paper" > $ENV_FILE
+    echo "#===== For your settings =====#" > $ENV_FILE
+    echo "export PROJECT=paper" >> $ENV_FILE
     echo "export VERSION=1.20.2" >> $ENV_FILE
     echo "export MEMORY=6G" >> $ENV_FILE
     echo "#===== NOT CHANGE =====#" >> $ENV_FILE

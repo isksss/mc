@@ -53,6 +53,7 @@ function paper-run(){
 
     # run server
     echo "run server."
+    screen -S ${screen_name} -X stuff "export LANG=ja_JP.utf8\n"
     screen -S ${screen_name} -X stuff "java -Xms${MEMORY} -Xmx${MEMORY} -jar ${CURRENT_DIR}/${server_jar} nogui\n"
 }
 #================#

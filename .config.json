@@ -15,7 +15,7 @@
             },
             {
                 "name":"CoreProtect.jar",
-                "url":"https://www.patreon.com/file?h=89830486&i=15920178"
+                "url":"https://dev.bukkit.org/projects/coreprotect/files/latest"
             },
             {
                 "name":"Advanced-Portals.jar",
@@ -29,6 +29,10 @@
                 "name":"fawe.jar",
                 "url":"https://dev.bukkit.org/projects/fawe/files/latest"
             },
+            {   
+                "name":"favs.jar",
+                "url":"https://dev.bukkit.org/projects/favs/files/latest"
+            },
             {
                 "name":"worldguard.jar",
                 "url":"https://dev.bukkit.org/projects/worldguard/files/latest"
@@ -40,6 +44,62 @@
             {
                 "name":"LWC-2.3.2-dev.jar",
                 "url":"https://ci.codemc.io/view/Author/job/pop4959/job/LWC/lastBuild/artifact/build/libs/LWC-2.3.2-dev.jar"
+            },
+            {
+                "name":"drivebackupv2.jar",
+                "url":"https://dev.bukkit.org/projects/drivebackupv2/files/latest"
+            },
+            {
+                "name":"plugmanx.jar",
+                "url":"https://dev.bukkit.org/projects/plugmanx/files/latest"
+            },
+            {
+                "name":"levelledmobs.jar",
+                "url":"https://github.com/ArcanePlugins/LevelledMobs/releases/download/3.12.1/LevelledMobs-3.12.1.b781.jar"
+            },
+            {
+                "name":"streamingdrops.jar",
+                "url":"https://github.com/morelaid/StreamDrops/releases/download/v.13.1/StreamingDrops_v.-13.1.jar"
+            },
+            {
+                "name":"vault.jar",
+                "url":"https://dev.bukkit.org/projects/vault/files/latest"
+            },
+            {
+                "name":"item-nbt-api-plugin.jar",
+                "url":"https://cdn.modrinth.com/data/nfGCP9fk/versions/fiPNOHqu/item-nbt-api-plugin-2.12.2.jar"
+            },
+            {
+                "name":"jecon.jar",
+                "url":"https://github.com/HimaJyun/Jecon/releases/download/2.2.1/Jecon-2.2.1.jar"
+            },
+            {
+                "name":"openinv.jar",
+                "url":"https://dev.bukkit.org/projects/openinv/files/latest"
+            },
+            {
+                "name":"multiverse-core.jar",
+                "url":"https://dev.bukkit.org/projects/multiverse-core/files/latest"
+            },
+            {
+                "name":"multiverse-portals.jar",
+                "url":"https://dev.bukkit.org/projects/multiverse-portals/files/latest"
+            },
+            {
+                "name":"dropheads.jar",
+                "url":"https://dev.bukkit.org/projects/dropheads/files/latest"
+            },
+            {
+                "name":"orebfuscator-anti-x-ray.jar",
+                "url":"https://dev.bukkit.org/projects/orebfuscator-anti-x-ray/files/latest"
+            },
+            {
+                "name":"NoCheatPlus.jar",
+                "url":"https://ci.codemc.io/job/Updated-NoCheatPlus/job/Updated-NoCheatPlus/lastSuccessfulBuild/artifact/target/NoCheatPlus.jar"
+            },
+            {
+                "name":"quickshop-reremake.jar",
+                "url":"https://dev.bukkit.org/projects/quickshop-reremake/files/latest"
             }
         ],
         "velocity":[
