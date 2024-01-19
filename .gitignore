@@ -1,9 +1,0 @@
-*
-**/*
-!devcontainer.json
-!.gitignore
-!.config.json
-!init.sh
-!restart.sh
-!eula.txt
-!start.sh

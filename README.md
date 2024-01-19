@@ -1,29 +1,16 @@
 # マイクラサーバー管理
 
-`/mc`に配置してください。
+deno依存
 
-## 使い方
+## 引数
 
-1. `/`に移動
-1. `git clone https://github.com/isksss/mc.git ./mc`
-1. `.config.json`をいじる
-1. `./start.sh`を実行  
+- name: product name
+- version: version
+- momory
+- timer
 
-## 必須
+## 例
 
-- java17以上(openjdk-17-jdk)
-- curl
-- screen
-- jq
-
-## よく使うコマンド
-```shell
-# placeholder
-papi ecloud download player
-papi ecloud download server
-
-# chunky
-chunky center 100 -100
-chunky radius 5000
-chunky start
+```bash
+$ deno run -A main.ts --name=paper --version=1.20.4 --timer=720 --momory=6G
 ```
