@@ -76,7 +76,7 @@ async function download_product(config: Config) {
   // todo: progress bar
   // todo: deno.writeAllの代わりに、streamを使う
   await Deno.writeAll(file, new Uint8Array(await blob.arrayBuffer()));
-  
+
   file.close();
 }
 
@@ -124,7 +124,7 @@ async function run_server(config: Config) {
   const stop_timer = setTimeout(async () => {
     await writeStream(process.stdin, "stop\n");
   }, timer_min);
-  
+
   console.log("server start.");
 
   // java processの終了を待つ
@@ -171,7 +171,7 @@ if (import.meta.main) {
   await download_product(config);
 
   // run server
-  while(true){
+  while (true) {
     await run_server(config);
   }
 }
