@@ -1,0 +1,13 @@
+[Unit]
+Description=minecraft
+
+[Service]
+Type=forking
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/mc
+ExecStart=/home/ubuntu/.deno/bin/deno run -A main.ts --name=velocity --version=3.3.0-SNAPSHOT --timer=720 --momory=512M
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
