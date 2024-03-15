@@ -1,5 +1,0 @@
-{
-  "tasks": {
-    "dev": "deno run -A main.ts --name=paper --version=1.20.4 --timer=720 --momory=6G"
-  }
-}
